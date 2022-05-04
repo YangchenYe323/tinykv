@@ -34,9 +34,9 @@ func (s *StandAloneStorage) Start() error {
 	return nil
 }
 
-func (s *StandAloneStorage) Stop() error {
-	// Your Code Here (1).
-	return nil
+func (s *StandAloneStorage) Stop() (err error) {
+	err = s.db.Close()
+	return
 }
 
 func (s *StandAloneStorage) Reader(ctx *kvrpcpb.Context) (reader storage.StorageReader, err error) {
